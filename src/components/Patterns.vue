@@ -1,5 +1,6 @@
 <template>
-<div class="patterns_flexbox">
+<h1>Patterns</h1>
+<div class="flexbox">
 <div :key="pattern._id" v-for="pattern in patterns">
 <Pattern :pattern="pattern" />
 </div>
@@ -11,22 +12,23 @@ import Pattern from './Pattern.vue';
 
 export default {
     name: 'Patterns',
-    props: {
-        patterns: Array
-    },
     components: {
         Pattern
-    }
+    },
+    data() {
+        return {
+            patterns: []
+        }
+    },
+    methods: {
+      async fetchPatterns() {
+        const response = await fetch('https://automatrixapi.pythonanywhere.com/api/patterns');
+        const {patterns} = await response.json();
+          return patterns;
+      } 
+    },
+    async created() {
+    this.patterns = await this.fetchPatterns();
+  }
 }
 </script>
-
-<style scoped>
-.patterns_flexbox {
-  width: 90%;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, max-content));
-  justify-content: center;
-  gap: 15px;
-  margin: 0 auto
-}
-</style>
