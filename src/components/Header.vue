@@ -1,13 +1,10 @@
 <template>
     <header>
         <h1>{{ title }}</h1>
-        <Buttons/>
     </header>
 </template>
 
 <script>
-import Buttons from './Buttons.vue';
-
 export default {
     name: 'Header',
     props: {
@@ -15,9 +12,6 @@ export default {
             type: String,
             default: 'Hello'
         }
-    },
-    components: {
-        Buttons
     }
 }
 </script>
