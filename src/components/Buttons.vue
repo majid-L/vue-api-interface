@@ -1,17 +1,20 @@
 <template>
-    <button class="btn btn-primary" @click="onClick()">Patterns</button>
+    <button id="patterns" class="btn btn-primary" @click="onClickPatterns()">Patterns</button>
+    <button id="users" class="btn btn-primary" @click="onClickUsers()">Users</button>
 </template>
 
 <script>
 export default {
     name: 'Buttons',
     methods: {
-        onClick() {
-            fetch('https://automatrixapi.pythonanywhere.com/api/users')
-            .then(res => res.json())
-            .then(({users}) => console.log(users))
+        onClickPatterns() {
+            this.$emit('fetch-patterns');
+        },
+        onClickUsers() {
+            this.$emit('fetch-users');
         }
-    }
+    },
+    emits: ['fetch-patterns', 'fetch-users']
 }
 </script>
 
