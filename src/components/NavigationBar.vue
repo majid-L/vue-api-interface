@@ -1,7 +1,7 @@
 <template>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Automatrix API</a>
+    <a class="navbar-brand" href="https://github.com/3782291211/django-api-project">Automatrix API</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -18,6 +18,9 @@
         <li class="nav-item">
           <router-link class="nav-link" aria-current="page" to="/users">Users</router-link>
           <!-- <a class="nav-link" href="#/users">Users</a> -->
+        </li>
+        <li class="nav-item">
+          <router-link class="nav-link" aria-current="page" to="/patterns/new">Add new pattern</router-link>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
