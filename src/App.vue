@@ -100,6 +100,10 @@ span {
   margin-bottom: 50px;
 }
 
+section {
+    margin-bottom: 90px
+}
+
 </style>
 
 
