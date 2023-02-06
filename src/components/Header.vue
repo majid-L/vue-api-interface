@@ -19,7 +19,7 @@ export default {
 <style scoped>
 h1 {
     font-family: 'Luckiest Guy', cursive;
-    font-size: 50px;
+    font-size: 80px;
     margin: 60px auto 40px
 }
 
