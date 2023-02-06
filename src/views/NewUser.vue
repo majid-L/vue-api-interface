@@ -2,6 +2,8 @@
 <h2 v-if="_id">Update user details</h2>
 <h2 v-else>Add new user</h2>
 
+<button @click="() => $router.go(-1)" type="button" class="btn btn-warning">Go back</button>
+
 <form @submit.prevent="onSubmit">
   <p class="form-instruction" v-if="_id">Update one or more of this user's details. <span v-if="_id">(User id: {{ _id }})</span></p>
   <p class="form-instruction" v-else>To add a new user, make sure you fill in <span>all</span> of the fields below.</p>
@@ -30,23 +32,22 @@
 </div>
 
 <div v-if="success" class="alert alert-success" role="alert">
-  <p>Your new pattern has been successfully added.</p>
-  <Pattern :pattern="newPattern"/>
+  <p class="success-conf">{{_id ? "User details have been successfully updated" : 'New user has been successfully added.'}}</p>
+  <User :user="user"/>
 </div>
 
 </template>
 
 <script>
-import Pattern from '../components/Pattern.vue';
+import User from '../components/User.vue';
 
 export default {
-    name: 'NewPattern',
+    name: 'NewUser',
     props: {
       _id: String
     },
     data() {
         return {
-            httpMethod: 'POST',
             user: [],
             username: '',
             account_owner: '',
@@ -58,20 +59,18 @@ export default {
         }
     },
     methods: {
-        async onSubmit(e) {
+        async onSubmit() {
           this.success = false;
           const incompleteForm = !this.username || !this.account_owner || !this.email || !this.avatar_url;
           const emptyForm = !this.username && !this.account_owner && !this.email && !this.avatar_url
 
-          if (this.httpMethod === 'POST' && incompleteForm) {
+          if (!this._id && incompleteForm) {
             this.error = "Please ensure that you complete all fields.";
-          } else if (this.httpMethod === 'PUT' && emptyForm) {
+          } else if (this._id && emptyForm) {
             this.error = "Please ensure that you fill in at least 1 field.";
-          //} else if (this.email && !/^.+@.+\..+$/.test(this.email)) {
-          //  this.error = "Invalid email format. Please try again.";
-          } else if (this.httpMethod === 'POST') {
-            this.user = await this.postUser();
-          } else if (this.httpMethod === 'PUT') {
+          } else if (!this._id) {
+            this.user = await this.postNewUser();
+          } else if (this._id) {
             this.user = await this.updateUser();
           }
         },
@@ -92,7 +91,7 @@ export default {
             if (response.ok) {
               const {user} = await response.json();
               this.success = true;
-              return pattern;
+              return user;
             } else {
               const {msg} = await response.json();
               this.loading = false;
@@ -103,20 +102,20 @@ export default {
         async updateUser() {
           this.success = false;
           this.error = false;
-          const response = await fetch('https://automatrixapi.pythonanywhere.com/api/users', {
-                method: 'POST',
+
+          const keyValuePairs = [['username', this.username], ['account_owner', this.account_owner], ['email', this.email], ['avatar_url', this.avatar_url]];
+          const body = {};
+          keyValuePairs.forEach(([k, v]) => v ? body[k] = v : null);
+
+          const response = await fetch(`https://automatrixapi.pythonanywhere.com/api/users/${this._id}`, {
+                method: 'PUT',
                 headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({
-                    username: this.username, 
-                    account_owner: this.account_owner, 
-                    email: this.email,
-                    avatar_url: this.avatar_url    
-                  })
+                body: JSON.stringify(body)
             });
             if (response.ok) {
-              const {user} = await response.json();
+              const {updated_user} = await response.json();
               this.success = true;
-              return pattern;
+              return updated_user;
             } else {
               const {msg} = await response.json();
               this.loading = false;
@@ -154,6 +153,10 @@ p {
 
 .btn-group {
   margin-bottom: 20px
+}
+
+.success-conf {
+  margin-bottom: 17px
 }
 
 /*
