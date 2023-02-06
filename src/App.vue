@@ -37,7 +37,7 @@ body {
 }
 
 h2 {
-  margin: 0 auto 30px !important;
+  margin: 15px auto !important;
   font-size: 40px !important;
 }
 
@@ -64,7 +64,12 @@ li {
 }
 
 .card-body {
-  height: 200px;
+  height: 250px;
+}
+
+.d-flex {
+    width: 70%;
+    float: right
 }
 
 .--hide-overflow {
@@ -101,12 +106,30 @@ span {
   margin: 30px auto 10px;
 }
 
+.button-group {
+  margin-bottom: 15px
+}
+
 .loading {
   margin-bottom: 50px;
 }
 
 section {
     margin-bottom: 90px
+}
+
+.glass {
+  /* From https://css.glass */
+background: rgba(245, 162, 73, 0.888);
+border-radius: 16px;
+box-shadow: 0 0 20px rgb(251, 187, 98);
+backdrop-filter: blur(9.1px);
+-webkit-backdrop-filter: blur(9.1px);
+border: 1px solid rgba(76, 117, 131, 0.43);
+width: 90%;
+max-width: 1000px;
+margin: 20px auto 40px;
+padding: 20px 0
 }
 
 </style>
