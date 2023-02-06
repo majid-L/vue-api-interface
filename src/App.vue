@@ -6,10 +6,7 @@
 
 <script>
 import NavigationBar from './components/NavigationBar.vue';
-import Home from './views/Home.vue';
 import Header from './components/Header.vue';
-import Patterns from './views/Patterns.vue';
-import Users from './views/Users.vue';
 
 export default {
   name: 'App',
@@ -64,7 +61,7 @@ li {
 }
 
 .card-body {
-  height: 250px;
+  height: 260px !important;
 }
 
 .d-flex {
@@ -99,6 +96,11 @@ span {
   margin: 30px auto;
 }
 
+.alert-success {
+  width: 70%;
+  max-width: 900px;
+}
+
 .spinner-border {
   width: 90px !important;
   height: 90px !important;
@@ -107,7 +109,7 @@ span {
 }
 
 .button-group {
-  margin-bottom: 15px
+  margin-bottom: 20px;
 }
 
 .loading {
