@@ -22,6 +22,9 @@
         <li class="nav-item">
           <router-link class="nav-link" aria-current="page" to="/patterns/new">Add new pattern</router-link>
         </li>
+        <li class="nav-item">
+          <router-link class="nav-link" aria-current="page" to="/users/new">Add new user</router-link>
+        </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Patterns by user
@@ -34,10 +37,6 @@
           </ul>
         </li>
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
     </div>
   </div>
 </nav>
