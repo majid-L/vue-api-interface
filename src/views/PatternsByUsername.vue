@@ -19,6 +19,8 @@
     {{ error }}
 </div>
 
+<button @click="() => $router.go(-1)" type="button" class="btn btn-warning">Go back</button>
+
 </template>
 
 <script>
