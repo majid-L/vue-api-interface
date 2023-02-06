@@ -1,6 +1,8 @@
 <template>
+    <div class="glass">
     <h2>Welcome!</h2>
     <p>This application provides a simple front end interface for one of my back end API projects.</p>
+    </div>
 
 
 <div v-if="loading">
@@ -49,8 +51,17 @@ export default {
 </script>
 
 <style scoped>
+* {
+    color: black
+}
+
+h2 {
+    font-family: 'Luckiest Guy', cursive;
+    font-weight: normal;
+}
+
 p {
-    font-size: 16px
+    font-size: 20px;
 }
 
 .list-group {
