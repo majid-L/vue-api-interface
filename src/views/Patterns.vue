@@ -9,11 +9,13 @@
 
 <button v-if="!loading" type="button" class="btn btn-warning">Add new pattern</button>
 
+<section>
 <div class="grid">
 <div :key="pattern._id" v-for="pattern in patterns">
 <Pattern :pattern="pattern" />
 </div>
 </div>
+</section>
 </template>
 
 <script>

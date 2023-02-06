@@ -7,12 +7,14 @@
 <p class="loading">Loading...</p>
 </div>
 
+<section>
 <div v-if="!error" class="grid">
 <div :key="pattern._id" v-for="pattern in patterns">
 <Pattern :pattern="pattern" />
 </div>
-
 </div>
+</section>
+
 <div v-if="error" class="alert alert-danger" role="alert">
     {{ error }}
 </div>

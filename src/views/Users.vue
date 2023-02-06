@@ -7,11 +7,14 @@
 <p class="loading">Loading...</p>
 </div>
 
+<section>
 <div class="grid">
 <div :key="user._id" v-for="user in users">
 <User :user="user" />
 </div>
 </div>
+</section>
+
 </template>
 
 <script>
