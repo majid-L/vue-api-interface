@@ -9,15 +9,12 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <router-link class="nav-link active" aria-current="page" to="/">Home</router-link>
-          <!-- <a class="nav-link active" aria-current="page" href="#">Home</a> -->
         </li>
         <li class="nav-item">
           <router-link class="nav-link" aria-current="page" to="/patterns">Patterns</router-link>
-          <!-- <a class="nav-link" href="#/patterns">Patterns</a> -->
         </li>
         <li class="nav-item">
           <router-link class="nav-link" aria-current="page" to="/users">Users</router-link>
-          <!-- <a class="nav-link" href="#/users">Users</a> -->
         </li>
         <li class="nav-item">
           <router-link class="nav-link" aria-current="page" to="/patterns/new">Add new pattern</router-link>
@@ -31,7 +28,6 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li :key="user._id" v-for="user in users">
-                <!-- <a class="dropdown-item" v-bind:href="'#/users/' + user.username + '/patterns'">{{ user.username }}</a> -->
                 <router-link class="dropdown-item" aria-current="page" :to="{path: `/users/${user.username}/patterns` }">{{ user.username }}</router-link>
             </li>
           </ul>
