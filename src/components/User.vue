@@ -1,6 +1,8 @@
 <template>
     <div class="card">
         <div class="card-body">
+            <router-link :to="{path: `/users/${user._id}`}"><button type="button" class="btn btn-info">Update details</button></router-link>
+            
           <h5 class="card-title">{{ user.account_owner}}</h5>
           <h6 class="card-subtitle mb-2 text-muted">{{ user.username }}</h6>
           <p class="card-text"><span>User id:</span> {{ user._id }}</p>
@@ -22,6 +24,10 @@ export default {
 <style scoped>
 * {
     color: black
+}
+
+button {
+    float: right
 }
 
 </style>
