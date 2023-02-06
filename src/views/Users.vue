@@ -7,6 +7,8 @@
 <p class="loading">Loading...</p>
 </div>
 
+<router-link to="/users/new"><button v-if="!loading" type="button" class="btn btn-warning">Add new user</button></router-link>
+
 <section>
 <div class="grid">
 <div :key="user._id" v-for="user in users">
@@ -45,3 +47,10 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+button {
+  margin: 0 auto 40px;
+  font-size: 20px;
+}
+</style>
