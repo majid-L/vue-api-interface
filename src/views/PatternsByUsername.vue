@@ -1,13 +1,22 @@
 <template>
 <h2>Patterns by {{ username }}</h2>
-<div v-if="!error" class="flexbox">
+
+<div v-if="loading">
+<div class="spinner-border text-info" role="status">
+</div>
+<p class="loading">Loading...</p>
+</div>
+
+<div v-if="!error" class="grid">
 <div :key="pattern._id" v-for="pattern in patterns">
 <Pattern :pattern="pattern" />
 </div>
+
 </div>
 <div v-if="error" class="alert alert-danger" role="alert">
     {{ error }}
 </div>
+
 </template>
 
 <script>
@@ -21,17 +30,21 @@ export default {
     data() {
         return {
             patterns: [],
-            error: false
+            error: false,
+            loading: true
         }
     },
     methods: {
         async fetchPatternsByUsername() {
+            this.loading = true;
             const response = await fetch(`https://automatrixapi.pythonanywhere.com/api/users/${this.username}/patterns`);
             if (response.ok) {
               const {patterns} = await response.json();
+              this.loading = false;
               return patterns;
             } else {
               const {msg} = await response.json();
+              this.loading = false;
               this.error = msg;
             }
            

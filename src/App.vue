@@ -36,6 +36,11 @@ body {
   background-color: rgb(35, 33, 33) !important;
 }
 
+h2 {
+  margin: 0 auto 30px !important;
+  font-size: 40px !important;
+}
+
 li {
   list-style: none;
 }
@@ -69,19 +74,32 @@ span {
     font-weight: bold;
 }
 
-.flexbox {
+.grid {
   width: 90%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, max-content));
   justify-content: center;
   gap: 15px;
-  margin: 0 auto
+  margin: 0 auto;
+  max-width: 1600px;
 }
 
 .alert {
   width: fit-content;
   margin: 30px auto
 }
+
+.spinner-border {
+  width: 90px !important;
+  height: 90px !important;
+  font-size: 30px;
+  margin: 30px auto 10px;
+}
+
+.loading {
+  margin-bottom: 50px;
+}
+
 </style>
 
 

@@ -1,6 +1,13 @@
 <template>
-<h1>Users</h1>
-<div class="flexbox">
+<h2>Users</h2>
+
+<div v-if="loading">
+<div class="spinner-border text-info" role="status">
+</div>
+<p class="loading">Loading...</p>
+</div>
+
+<div class="grid">
 <div :key="user._id" v-for="user in users">
 <User :user="user" />
 </div>
@@ -17,14 +24,17 @@ export default {
     },
     data() {
         return {
-            users: []
+            users: [],
+            loading: true
         }
     },
     methods: {
       async fetchUsers() {
+        this.loading = true;
         const response = await fetch('https://automatrixapi.pythonanywhere.com/api/users');
         const {users} = await response.json();
-          return users;
+        this.loading = false;
+        return users;
       } 
     },
     async created() {
