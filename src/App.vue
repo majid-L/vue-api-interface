@@ -63,6 +63,10 @@ li {
     margin: 2px 0
 }
 
+.card-body {
+  height: 200px;
+}
+
 .--hide-overflow {
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -86,7 +90,8 @@ span {
 
 .alert {
   width: fit-content;
-  margin: 30px auto
+  max-width: 700px;
+  margin: 30px auto;
 }
 
 .spinner-border {
@@ -105,38 +110,3 @@ section {
 }
 
 </style>
-
-
-
-
-<!-- const routes = {
-  '/': Home,
-  '/patterns': Patterns,
-  '/users': Users,
-  '/users/:username/patterns': PatternsByUsername
-};
-
-export default {
-  name: 'App',
-  components: {
-    Header,
-    NavigationBar
-  },
-  compatConfig: { MODE: 3 },
-  data() {
-    return {
-      currentPath: window.location.hash
-    }
-  },
-  computed: {
-    currentView() {
-      return routes[this.currentPath.slice(1) || '/'] || NotFound
-    }
-  },
-  mounted() {
-    window.addEventListener('hashchange', () => {
-      this.currentPath = window.location.hash;
-    })
-  }
-}
-</script> -->

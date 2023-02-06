@@ -20,10 +20,10 @@ export default {
 h1 {
     font-family: 'Luckiest Guy', cursive;
     font-size: 80px;
-    margin: 60px auto 40px
+    margin: 80px auto 0
 }
 
 header {
-    margin-bottom: 50px
+    margin-bottom: 30px
 }
 </style>
