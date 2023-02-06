@@ -1,28 +1,15 @@
-<!-- <template>
-<Header title="API interface" @fetch-patterns="fetchPatterns" @fetch-users="fetchUsers"/>
-<Patterns :patterns="patterns"/>
-<Users :users="users"/>
-</template> -->
-
 <template>
   <NavigationBar />
   <Header title="API interface" />
-  <component :is="currentView" />
+  <router-view></router-view>
 </template>
 
 <script>
 import NavigationBar from './components/NavigationBar.vue';
-import Home from './components/Home.vue';
+import Home from './views/Home.vue';
 import Header from './components/Header.vue';
-import Patterns from './components/Patterns.vue';
-import Users from './components/Users.vue';
-import NotFound from './components/NotFound.vue';
-
-const routes = {
-  '/': Home,
-  '/patterns': Patterns,
-  '/users': Users
-};
+import Patterns from './views/Patterns.vue';
+import Users from './views/Users.vue';
 
 export default {
   name: 'App',
@@ -30,22 +17,7 @@ export default {
     Header,
     NavigationBar
   },
-  compatConfig: { MODE: 3 },
-  data() {
-    return {
-      currentPath: window.location.hash
-    }
-  },
-  computed: {
-    currentView() {
-      return routes[this.currentPath.slice(1) || '/'] || NotFound
-    }
-  },
-  mounted() {
-    window.addEventListener('hashchange', () => {
-      this.currentPath = window.location.hash;
-    })
-  }
+  compatConfig: { MODE: 3 }
 }
 </script>
 
@@ -105,4 +77,44 @@ span {
   gap: 15px;
   margin: 0 auto
 }
+
+.alert {
+  width: fit-content;
+  margin: 30px auto
+}
 </style>
+
+
+
+
+<!-- const routes = {
+  '/': Home,
+  '/patterns': Patterns,
+  '/users': Users,
+  '/users/:username/patterns': PatternsByUsername
+};
+
+export default {
+  name: 'App',
+  components: {
+    Header,
+    NavigationBar
+  },
+  compatConfig: { MODE: 3 },
+  data() {
+    return {
+      currentPath: window.location.hash
+    }
+  },
+  computed: {
+    currentView() {
+      return routes[this.currentPath.slice(1) || '/'] || NotFound
+    }
+  },
+  mounted() {
+    window.addEventListener('hashchange', () => {
+      this.currentPath = window.location.hash;
+    })
+  }
+}
+</script> -->
