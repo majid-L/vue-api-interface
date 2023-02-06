@@ -11,7 +11,7 @@
 
 <section>
 <div class="grid">
-<div :key="pattern._id" v-for="pattern in patterns">
+<div v-for="pattern in patterns" :key="pattern._pattern_name">
 <Pattern :pattern="pattern" />
 </div>
 </div>
