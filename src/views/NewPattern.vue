@@ -1,5 +1,6 @@
 <template>
 <h2>Add a new pattern</h2>
+<button @click="() => $router.go(-1)" type="button" class="btn btn-warning">Go back</button>
 
 <form @submit.prevent="onSubmit">
   <div class="mb-3">
