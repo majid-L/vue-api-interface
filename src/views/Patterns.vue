@@ -7,7 +7,7 @@
 <p class="loading">Loading...</p>
 </div>
 
-<button v-if="!loading" type="button" class="btn btn-warning">Add new pattern</button>
+<router-link to="/patterns/new"><button v-if="!loading" type="button" class="btn btn-warning">Add new pattern</button></router-link>
 
 <section>
 <div class="grid">
