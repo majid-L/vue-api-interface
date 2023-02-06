@@ -2,7 +2,14 @@
     <h2>Welcome!</h2>
     <p>This application provides a simple front end interface for one of my back end API projects.</p>
 
-<section>
+
+<div v-if="loading">
+<div class="spinner-border text-info" role="status">
+</div>
+<p class="loading">Loading...</p>
+</div>
+
+<section v-if="!loading">
 <div class="list-group" v-for="endpoint in endpoints">
   <div class="list-group-item list-group-item-action" aria-current="true">
     <div class="d-flex w-100 justify-content-between">
@@ -21,13 +28,16 @@ export default {
     name: "Home",
     data() {
         return {
-            endpoints: []
+            endpoints: [],
+            loading: true
         }
     },
     methods: {
         async fetchEndpoints() {
+            this.loading = true;
             const response = await fetch('https://automatrixapi.pythonanywhere.com');
             const {endpoints} = await response.json();
+            this.loading = false;
             return endpoints;
         }
     },
