@@ -1,24 +1,15 @@
-# vue-api-interface
+# Vue.js front end API interface
 
-## Project setup
-```
-npm install
-```
+In this Vue.js project, I have created an application that fetches and presents data from a Django/Python API that I have previously completed. This application allows users to fully interact with the API's endpoints and HTTP methods.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Key product features:
+- Data fetching using async/await
+- Error handling
+- Full range of CRUD operations
+- Programmatic navigation with Vue Router
+- Elegant styling with Bootstrap v5
+- Meaningful UI updates with regards to loading and error states
 
-### Compiles and minifies for production
-```
-npm run build
-```
+<br/>
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+<img width=350px src="https://v2.vuejs.org/images/logo.svg">
