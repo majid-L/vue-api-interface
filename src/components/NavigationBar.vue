@@ -8,21 +8,26 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <router-link class="nav-link active" aria-current="page" to="/">Home</router-link>
+          <!-- <a class="nav-link active" aria-current="page" href="#">Home</a> -->
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#/patterns">Patterns</a>
+          <router-link class="nav-link" aria-current="page" to="/patterns">Patterns</router-link>
+          <!-- <a class="nav-link" href="#/patterns">Patterns</a> -->
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#/users">Users</a>
+          <router-link class="nav-link" aria-current="page" to="/users">Users</router-link>
+          <!-- <a class="nav-link" href="#/users">Users</a> -->
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Patterns by user
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li :key="user._id" v-for="user in users">
+                <!-- <a class="dropdown-item" v-bind:href="'#/users/' + user.username + '/patterns'">{{ user.username }}</a> -->
+                <router-link class="dropdown-item" aria-current="page" :to="{path: `/users/${user.username}/patterns` }">{{ user.username }}</router-link>
+            </li>
           </ul>
         </li>
       </ul>
@@ -43,10 +48,23 @@ export default {
             users: []
         }
     },
-    async mounted() {
+    methods: {
+      async fetchUsers() {
         const response = await fetch('https://automatrixapi.pythonanywhere.com/api/users');
         const {users} = await response.json();
-        this.users 
-    }
+        return users;
+      } 
+    },
+    async created() {
+    this.users = await this.fetchUsers();
+  }
 }
 </script>
+
+<style scoped>
+
+* {
+  margin: 0
+}
+
+</style>
