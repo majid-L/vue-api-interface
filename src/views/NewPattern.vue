@@ -4,15 +4,15 @@
 <form @submit.prevent="onSubmit">
   <div class="mb-3">
     <label for="username" class="form-label">Username</label>
-    <input v-model.lazy="username" type="text" class="form-control" id="username" placeholder="Enter username">
+    <input v-model="username" type="text" class="form-control" id="username" placeholder="Enter username">
   </div>
   <div class="mb-3">
     <label for="pattern_name" class="form-label">Pattern name</label>
-    <input v-model.lazy="pattern_name" type="text" class="form-control" id="pattern_name" placeholder="Enter pattern name">
+    <input v-model="pattern_name" type="text" class="form-control" id="pattern_name" placeholder="Enter pattern name">
   </div>
   <div class="mb-3">
     <label for="pattern_body" class="form-label">Pattern Body</label>
-    <textarea v-model.lazy="pattern_body" type="text" class="form-control" id="pattern_body" placeholder="e.g. 1011111111 0000010011 1111100000 1110100000 1011110111 1010001111 1111111111 0011100000 1111111100 0001010000"/>
+    <textarea v-model="pattern_body" type="text" class="form-control" id="pattern_body" placeholder="e.g. 1011111111 0000010011 1111100000 1110100000 1011110111 1010001111 1111111111 0011100000 1111111100 0001010000"/>
     <div class="form-text">This needs to be in a specific format. Visit the patterns page to take a look.</div>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
