@@ -121,7 +121,8 @@ section {
 }
 
 .back-to-top {
-  margin-bottom: 70px
+  margin-bottom: 70px;
+  font-size: 16px !important
 }
 
 .glass {
