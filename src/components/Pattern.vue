@@ -6,7 +6,7 @@
           <input class="form-control me-2" type="text" v-model="newPatternName" placeholder="New pattern name" aria-label="Update">
           <button :disabled="!newPatternName" class="btn btn-outline-success" type="submit"><span v-if="loadingUpdate" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>{{ !loadingUpdate ? 'Update' : null}}</button>
         </form>
-        <button @click="deletePattern" class="btn btn-danger" type="button">
+        <button @click="deletePattern" id="delete-pattern" class="btn btn-danger" type="button">
             <span v-if="loadingDelete" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
             {{ !loadingDelete ? 'Delete' : 'Deleting...'}}
         </button>
@@ -79,7 +79,7 @@ input:placeholder-shown {
   text-overflow: ellipsis;
 }
 
-button {
+#delete-pattern {
     color: whitesmoke
 }
 
