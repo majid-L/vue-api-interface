@@ -117,7 +117,11 @@ span {
 }
 
 section {
-    margin-bottom: 90px
+    margin-bottom: 60px
+}
+
+.back-to-top {
+  margin-bottom: 70px
 }
 
 .glass {
