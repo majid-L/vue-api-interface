@@ -23,8 +23,8 @@
           <router-link class="nav-link" aria-current="page" to="/users/new">Add new user</router-link>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Patterns by user
+          <a v-if="!error" :disabled="loading || error" :class="[loading ? 'grey' : '', 'nav-link dropdown-toggle']" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><span v-if="loading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            {{ loading ? ' Patterns by user (loading)' : 'Patterns by user' }}
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li :key="user._id" v-for="user in users">
@@ -43,18 +43,28 @@ export default {
     name: 'NavigationBar',
     data() {
         return {
-            users: []
+            users: [],
+            loading: true,
+            error: false
         }
     },
     methods: {
       async fetchUsers() {
+        this.error = false;
+        this.loading = true;
         const response = await fetch('https://automatrixapi.pythonanywhere.com/api/users');
-        const {users} = await response.json();
-        return users;
+        if (response.ok) {
+          const {users} = await response.json();
+          return users;
+        } else if (response.ok === false) {
+          const {msg} = await response.json();
+          this.error = msg;
+        }
       } 
     },
     async created() {
     this.users = await this.fetchUsers();
+    this.loading = false;
   }
 }
 </script>
@@ -65,4 +75,18 @@ export default {
   margin: 0
 }
 
+.spinner-border {
+  width: 15px !important;
+  height: 15px !important;
+  font-size: 10px;
+  margin: 0 5px 0 0;
+}
+
+.grey {
+  color: rgb(148, 147, 147);
+  font-style: italic
+}
+
 </style>
+
+<!-- class="nav-link dropdown-toggle" line 26 -->
