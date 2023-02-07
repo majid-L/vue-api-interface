@@ -1,7 +1,7 @@
 <template>
     <div class="glass">
     <h2>Welcome!</h2>
-    <p>This application provides a simple front end interface for one of my back end API projects.</p>
+    <p id="home-intro">This application provides an interactive front end interface for one of my back end API projects. To see the Github repository for that project, click on the "Automatrix API" link on the far left of the navigation bar.</p>
     </div>
 
 
@@ -82,6 +82,11 @@ p {
 .list-group-item {
     margin: 3px;
     text-align: left;
+}
+
+#home-intro {
+    text-align: left;
+    margin: 10px 25px
 }
 
 h5 {
