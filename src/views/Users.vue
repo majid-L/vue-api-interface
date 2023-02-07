@@ -17,6 +17,8 @@
 </div>
 </section>
 
+<button v-if="!loading" @click.native="scrollToTop" class="btn btn-warning back-to-top">Back to top</button>
+
 </template>
 
 <script>
@@ -40,7 +42,10 @@ export default {
         const {users} = await response.json();
         this.loading = false;
         return users;
-      } 
+      },
+      scrollToTop() {
+      window.scrollTo(0,0);
+    }
     },
     async created() {
     this.users = await this.fetchUsers();

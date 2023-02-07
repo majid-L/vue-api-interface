@@ -16,6 +16,8 @@
 </div>
 </div>
 </section>
+
+<button v-if="!loading" @click.native="scrollToTop" class="btn btn-warning back-to-top">Back to top</button>
 </template>
 
 <script>
@@ -39,11 +41,14 @@ export default {
         const {patterns} = await response.json();
         this.loading = false;
         return patterns;
-      } 
+      },
+      scrollToTop() {
+      window.scrollTo(0,0);
+    }
     },
     async created() {
     this.patterns = await this.fetchPatterns();
-  }
+    }
 }
 </script>
 

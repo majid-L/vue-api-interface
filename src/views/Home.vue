@@ -23,6 +23,8 @@
 </div>
 </section>
 
+<button v-if="!loading" @click.native="scrollToTop" class="btn btn-warning back-to-top">Back to top</button>
+
 </template>
 
 <script>
@@ -41,7 +43,10 @@ export default {
             const {endpoints} = await response.json();
             this.loading = false;
             return endpoints;
-        }
+        },
+        scrollToTop() {
+      window.scrollTo(0,0);
+    }
     },
     async created() {
         this.endpoints = await this.fetchEndpoints();
@@ -53,6 +58,10 @@ export default {
 <style scoped>
 * {
     color: black
+}
+
+.loading {
+    color: whitesmoke
 }
 
 h2 {
