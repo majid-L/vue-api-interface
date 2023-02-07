@@ -1,7 +1,7 @@
 <template>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="https://github.com/3782291211/django-api-project">Automatrix API</a>
+    <a class="navbar-brand" id="navbar-title" href="https://github.com/3782291211/django-api-project">Automatrix API</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -85,6 +85,10 @@ export default {
 .grey {
   color: rgb(148, 147, 147);
   font-style: italic
+}
+
+#navbar-title {
+  margin-right: 40px
 }
 
 </style>
