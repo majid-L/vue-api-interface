@@ -26,32 +26,6 @@
     </div>
 </template>
 
-
-<!-- <template>
-    <div class="card">
-        <div class="card-body" data-toggle="tooltip" title="Click to see all paterns by this user">
-            <button @click="deleteUser" class="btn btn-danger" type="button">
-                <span v-if="loading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                {{ !loading ? 'Delete' : 'Deleting...'}}
-            </button>
-            <div class="button-group">
-            <router-link :to="{path: `/users/${user._id}`}"><button type="button" id="update_user" class="btn btn-info">Update details</button></router-link>
-            <router-link :to="{path: `/users/${user.username}/patterns` }"><button type="button" class="btn btn-info">{{ user.username }}'s patterns</button></router-link>
-            </div>
-            
-          <h5 class="card-title">{{ user.account_owner}}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">{{ user.username }}</h6>
-          <p class="card-text"><span>User id:</span> {{ user._id }}</p>
-          <p class="card-text --hide-overflow"><span>Email:</span> {{ user.email }}</p>
-          <p class="card-text --hide-overflow"><span>Avatar url:</span> {{ user.avatar_url }}</p>
-          
-          <p class="error-msg" v-if="error">{{ error }}</p>
-        </div>
-    </div>
-</template>
-
- -->
-
 <script>
 export default {
     name: 'User',

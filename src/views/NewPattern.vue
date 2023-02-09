@@ -101,7 +101,7 @@ label {
 }
 
 /*
-use this tyle if changing from textarea to input for pattern body
+use this style if changing from textarea to input for pattern body
 input:placeholder-shown {
   text-overflow: ellipsis;
 }*/

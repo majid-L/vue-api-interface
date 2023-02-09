@@ -63,38 +63,3 @@ export default {
     }
 }
 </script>
-
-
-<!-- 
-<script>
-import Pattern from '../components/Pattern.vue';
-
-export default {
-    name: 'PatternsByUsername',
-    props: {
-        username: String
-    },
-    data() {
-        return {
-            patterns: [],
-            error: false
-        }
-    },
-    methods: {
-        async fetchPatternsByUsername() {
-            const response = await fetch(`https://automatrixapi.pythonanywhere.com/api/users/${this.username}/patterns`);
-            const {patterns} = await response.json();
-            return patterns;
-        }
-    },
-    created() {
-        this.$watch(() => this.$route.params, async (toParams, previousParams) => {
-            try {
-            this.patterns = await this.fetchPatternsByUsername();
-            } catch(err) {
-                console.log('hello')
-            }
-        })
-    }
-}
-</script> -->
