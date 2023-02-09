@@ -62,7 +62,7 @@ export default {
         }
       } 
     },
-    async created() {
+    async mounted() {
     this.users = await this.fetchUsers();
     this.loading = false;
   }
