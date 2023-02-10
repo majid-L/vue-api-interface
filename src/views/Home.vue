@@ -41,15 +41,15 @@ export default {
             this.loading = true;
             const response = await fetch('https://automatrixapi.pythonanywhere.com');
             const {endpoints} = await response.json();
-            this.loading = false;
             return endpoints;
         },
         scrollToTop() {
       window.scrollTo(0,0);
     }
     },
-    async created() {
+    async mounted() {
         this.endpoints = await this.fetchEndpoints();
+        this.loading = false;
     }
 }
 

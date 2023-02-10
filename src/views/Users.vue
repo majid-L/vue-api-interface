@@ -49,6 +49,7 @@ export default {
     },
     async created() {
     this.users = await this.fetchUsers();
+    this.loading = false;
   }
 }
 </script>

@@ -48,6 +48,7 @@ export default {
     },
     async created() {
     this.patterns = await this.fetchPatterns();
+    this.loading = false;
     }
 }
 </script>
