@@ -12,7 +12,7 @@
     <label for="account_owner" class="form-label">Account owner</label>
     <input v-model="account_owner" type="text" class="form-control" id="account_owner" placeholder="Enter full name">
   </div>
-  <div class="mb-3">
+  <div v-if="!_id" class="mb-3">
     <label for="username" class="form-label">Username</label>
     <input v-model="username" type="text" class="form-control" id="username" placeholder="Enter username">
   </div>
