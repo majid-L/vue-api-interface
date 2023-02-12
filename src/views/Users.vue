@@ -32,7 +32,7 @@ export default {
     data() {
         return {
             users: [],
-            loading: true
+            loading: false
         }
     },
     methods: {
