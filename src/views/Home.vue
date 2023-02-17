@@ -50,6 +50,7 @@ export default {
     },
     async created() {
         this.endpoints = await this.fetchEndpoints();
+        this.loading = false;
     }
 }
 
