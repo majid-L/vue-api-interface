@@ -33,12 +33,11 @@ export default {
     data() {
         return {
             endpoints: [],
-            loading: false
+            loading: true
         }
     },
     methods: {
         async fetchEndpoints() {
-            this.loading = true;
             const response = await fetch('https://automatrixapi.pythonanywhere.com');
             const {endpoints} = await response.json();
             this.loading = false;
