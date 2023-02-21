@@ -11,7 +11,7 @@
 <p class="loading">Loading...</p>
 </div>
 
-<section v-if="!loading">
+<section>
 <div class="list-group" v-for="endpoint in endpoints">
   <div class="list-group-item list-group-item-action" aria-current="true">
     <div class="d-flex w-100 justify-content-between">
@@ -33,14 +33,14 @@ export default {
     data() {
         return {
             endpoints: [],
-            loading: true
+            loading: false
         }
     },
     methods: {
         async fetchEndpoints() {
+            this.loading = true;
             const response = await fetch('https://automatrixapi.pythonanywhere.com');
             const {endpoints} = await response.json();
-            this.loading = false;
             return endpoints;
         },
         scrollToTop() {
